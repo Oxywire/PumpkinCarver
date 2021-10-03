@@ -5,3 +5,8 @@ authors: [ SirKillian, SirSalad ]
 main: com.oxywire.pumpkincarver.PumpkinCarverPlugin
 version: '${version}'
 api-version: 1.17
+depend: [Citizens]
+
+permissions:
+  pumpkincarver.admin:
+    default: op
