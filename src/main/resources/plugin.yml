@@ -1,0 +1,7 @@
+name: PumpkinCarver
+description: An event plugin in the spirit of Halloween.
+authors: [ SirKillian, SirSalad ]
+
+main: com.oxywire.pumpkincarver.PumpkinCarverPlugin
+version: '${version}'
+api-version: 1.17
