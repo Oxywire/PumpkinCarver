@@ -21,7 +21,7 @@ broadcast:
     title: "&6☠ &eYou found a Carved Pumpkin! &6☠"
     subtitle: ""
   sound: "ENTITY_PLAYER_LEVELUP"
-  broadcast-msg: "&6&lPumpkinCarver &8» &e%player% &7found &6Pumpkin #%number%&7!"
+  broadcast-msg: "&6&lPumpkinCarver &8» &e<player> &7found &6Pumpkin #<number>&7!"
 
 redeem: # todo
   npc-id: 3
@@ -35,7 +35,7 @@ redeem: # todo
   console-command: ""
 
 messages:
-  pumpkins: "&6&lPumpkinCarver &8» &7A total of &6%GlobalPumpkinCounter% Pumpkins &7have dropped!"
-  pumpkins-drop: "&6&lPumpkinCarver &8» &e%player% &7dropped &6&lPumpkin #%GlobalPumpkinCounter%&7 in spawn!"
-  pumpkins-give: "&6&lPumpkinCarver &8» &7Gave &6Pumpkin #%number% to &e%player%&7"
+  pumpkins: "&6&lPumpkinCarver &8» &7A total of &6<GlobalPumpkinCounter> Pumpkins &7have dropped!"
+  pumpkins-drop: "&6&lPumpkinCarver &8» &e<player> &7dropped &6&lPumpkin #<GlobalPumpkinCounter>&7 in spawn!"
+  pumpkins-give: "&6&lPumpkinCarver &8» &7Gave &6Pumpkin #<number> to &e<player>&7"
   reload: "&6&lInfo &8» &7You reloaded PumpkinCarver."

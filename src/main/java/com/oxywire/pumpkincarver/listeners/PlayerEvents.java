@@ -2,6 +2,7 @@ package com.oxywire.pumpkincarver.listeners;
 
 import com.oxywire.pumpkincarver.PumpkinCarverPlugin;
 import com.oxywire.pumpkincarver.utils.Utils;
+import net.kyori.adventure.text.minimessage.Template;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.LivingEntity;
@@ -76,9 +77,9 @@ public class PlayerEvents implements Listener {
         loc.getWorld().dropItem(loc, Utils.getItem(plugin, plugin.getDropped()));
         Utils.showTitle(player, plugin.getConfig().getConfigurationSection("broadcast.title"));
         player.playSound(loc, Sound.valueOf(plugin.getConfig().getString("broadcast.sound")), 1, 1);
-        Utils.sendMessage(plugin.getServer(), plugin.getConfig().getString("broadcast.broadcast-msg")
-                .replace("%player%", player.getName())
-                .replace("%number%", String.valueOf(plugin.getDropped())));
+        Utils.sendMessage(plugin.getServer(), plugin.getConfig().getString("broadcast.broadcast-msg"),
+                Template.of("player", player.getName()),
+                Template.of("number", String.valueOf(plugin.getDropped())));
     }
 
     private boolean shouldDrop(final double chance) {
