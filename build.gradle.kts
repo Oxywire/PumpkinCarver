@@ -22,13 +22,15 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
     compileOnly("net.citizensnpcs:citizensapi:2.0.28-SNAPSHOT")
     implementation("cloud.commandframework:cloud-paper:1.5.0")
+    implementation("net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT")
 }
 
 tasks {
     shadowJar {
         listOf(
             "cloud.commandframework",
-            "io.leangen.geantyref"
+            "io.leangen.geantyref",
+            "net.kyori.adventure.text.minimessage"
         ).forEach { relocate(it, "com.oxywire.pumpkincarver.libs.$it") }
         minimize()
         archiveFileName.set("PumpkinCarver.jar")

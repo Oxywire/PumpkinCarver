@@ -5,6 +5,8 @@ import com.destroystokyo.paper.profile.ProfileProperty;
 import com.oxywire.pumpkincarver.PumpkinCarverPlugin;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.minimessage.Template;
 import net.kyori.adventure.title.Title;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -24,12 +26,12 @@ public final class Utils {
     private Utils() {
     }
 
-    public static Component color(final String text) {
-        return Component.text(text.replace('&', ChatColor.COLOR_CHAR));
+    public static Component color(final String text, final Template... placeholders) {
+        return MiniMessage.get().parse(text.replace('&', ChatColor.COLOR_CHAR), placeholders);
     }
 
-    public static void sendMessage(final Audience audience, final String lang) {
-        audience.sendMessage(color(lang));
+    public static void sendMessage(final Audience audience, final String lang, final Template... placeholders) {
+        audience.sendMessage(color(lang, placeholders));
     }
 
     public static void showTitle(final Audience audience, final ConfigurationSection config) {

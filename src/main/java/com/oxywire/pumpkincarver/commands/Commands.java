@@ -6,6 +6,7 @@ import cloud.commandframework.bukkit.parsers.PlayerArgument;
 import cloud.commandframework.paper.PaperCommandManager;
 import com.oxywire.pumpkincarver.PumpkinCarverPlugin;
 import com.oxywire.pumpkincarver.utils.Utils;
+import net.kyori.adventure.text.minimessage.Template;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -19,8 +20,8 @@ public class Commands {
         final Command.Builder<CommandSender> builder = manager.commandBuilder("pumpkincarver");
 
         manager.command(builder.handler(context -> {
-            Utils.sendMessage(context.getSender(), plugin.getConfig().getString("messages.pumpkins")
-                    .replace("%GlobalPumpkinCounter%", String.valueOf(plugin.getDropped())));
+            Utils.sendMessage(context.getSender(), plugin.getConfig().getString("messages.pumpkins"),
+                    Template.of("%GlobalPumpkinCounter%", String.valueOf(plugin.getDropped())));
         }));
 
         manager.command(builder.literal("drop")
@@ -29,9 +30,9 @@ public class Commands {
                 .handler(context -> {
                     final Player sender = (Player) context.getSender();
                     dropItem(sender.getLocation());
-                    Utils.sendMessage(sender, plugin.getConfig().getString("messages.pumpkins-drop")
-                            .replace("%player%", sender.getName())
-                            .replace("%GlobalPumpkinCounter%", String.valueOf(plugin.getDropped())));
+                    Utils.sendMessage(sender, plugin.getConfig().getString("messages.pumpkins-drop"),
+                            Template.of("player", sender.getName()),
+                            Template.of("GlobalPumpkinCounter", String.valueOf(plugin.getDropped())));
                 }));
 
         manager.command(builder.literal("give")
@@ -43,9 +44,9 @@ public class Commands {
                     final Player target = context.get("player");
                     final int number = context.get("number");
                     dropItem(target.getLocation(), number);
-                    Utils.sendMessage(sender, plugin.getConfig().getString("messages.pumpkins-give")
-                            .replace("%number%", String.valueOf(number))
-                            .replace("%player%", target.getName()));
+                    Utils.sendMessage(sender, plugin.getConfig().getString("messages.pumpkins-give"),
+                            Template.of("number", String.valueOf(number)),
+                            Template.of("player", target.getName()));
                 })
         );
 
