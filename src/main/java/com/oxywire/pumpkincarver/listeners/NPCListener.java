@@ -4,7 +4,9 @@ import com.oxywire.pumpkincarver.PumpkinCarverPlugin;
 import com.oxywire.pumpkincarver.utils.Utils;
 import net.citizensnpcs.api.event.NPCRightClickEvent;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,6 +32,7 @@ public class NPCListener implements Listener {
                 Utils.showTitle(player, plugin.getConfig().getConfigurationSection("redeem.title"));
                 Utils.sendMessage(player, plugin.getConfig().getString("redeem.message"));
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), plugin.getConfig().getString("redeem.console-command"));
+                player.playSound(player.getLocation(), Sound.valueOf(plugin.getConfig().getString("redeem.sound")), 1, 1);
             }
         }
     }

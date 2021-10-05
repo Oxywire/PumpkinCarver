@@ -1,9 +1,20 @@
 item:
   texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjRkMWVkZGVhYzgzMGQ5ZGVhMTJiODg4OTk3YjI4OWZhODRiNjljOTAxZjJjNTc0NGFmOTc1ZmM0OTRlYmUzIn19fQ=="
-  name: "&6Carved Pumpkin %GlobalPumpkinCounter%"
+  name: "&6&lCarved Pumpkin &e#<number>"
   lore:
-    - "&7Trick or treat?"
-    - "&7Find out at /spawn"
+    - "&8Trick or Treat?!"
+    - ""
+    - "&7This Carved Pumpkin was number &e<number> &7ever found!"
+    - "&7Found by: &e<founder>&7."
+    - "&7"
+    - "&7&6■ &eDeliver it to the Witch in spawn"
+    - ""
+    - "&5&m                             "
+    - "&6&lRelic Item"
+    - "&fTier: &5Utility"
+    - "&5&m                             "
+    - ""
+    - "&c☠ Happy Halloween!"
 
 excluded-blocks:
   - SNOW
@@ -15,27 +26,28 @@ rates:
 
 broadcast:
   title:
-    fade-in: 1
+    fade-in: 2
     stay: 4
-    fade-out: 1
-    title: "&6☠ &eYou found a Carved Pumpkin! &6☠"
-    subtitle: ""
+    fade-out: 2
+    title: "&c☠ &6You found a Carved Pumpkin! &c☠"
+    subtitle: "&7Return it to the with in spawn."
   sound: "ENTITY_PLAYER_LEVELUP"
   broadcast-msg: "&6&lPumpkinCarver &8» &e<player> &7found &6Pumpkin #<number>&7!"
 
-redeem: # todo
-  npc-id: 3
+redeem:
+  npc-id: 27
   title:
-    fade-in: 1
+    fade-in: 2
     stay: 4
-    fade-out: 1
-    title: ""
-    subtitle: ""
-  message: ""
-  console-command: ""
+    fade-out: 2
+    title: "&c☠ &6Thank You! &c☠"
+    subtitle: "&eOpen the Enchanted Pumpkin."
+  sound: "ENTITY_WITCH_CELEBRATE"
+  message: "&6&lPumpkinCarver &8» &eYou can now open the Enchanted Pumpkin"
+  console-command: "treasures keys <player> Pumpkin add 1"
 
 messages:
-  pumpkins: "&6&lPumpkinCarver &8» &7A total of &6<GlobalPumpkinCounter> Pumpkins &7have dropped!"
-  pumpkins-drop: "&6&lPumpkinCarver &8» &e<player> &7dropped &6&lPumpkin #<GlobalPumpkinCounter>&7 in spawn!"
+  pumpkins: "&6&lPumpkinCarver &8» &7A total of &6#<number> Pumpkins &7have dropped!"
+  pumpkins-drop: "&6&lPumpkinCarver &8» &e<player> &7dropped &6&lPumpkin #<number>&7 in spawn!"
   pumpkins-give: "&6&lPumpkinCarver &8» &7Gave &6Pumpkin #<number> to &e<player>&7"
   reload: "&6&lInfo &8» &7You reloaded PumpkinCarver."
