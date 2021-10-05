@@ -21,7 +21,7 @@ public class Commands {
 
         manager.command(builder.handler(context -> {
             Utils.sendMessage(context.getSender(), plugin.getConfig().getString("messages.pumpkins"),
-                    Template.of("%GlobalPumpkinCounter%", String.valueOf(plugin.getDropped())));
+                    Template.of("number", String.valueOf(plugin.getDropped())));
         }));
 
         manager.command(builder.literal("drop")
@@ -29,10 +29,10 @@ public class Commands {
                 .permission("pumpkincarver.admin")
                 .handler(context -> {
                     final Player sender = (Player) context.getSender();
-                    dropItem(sender.getLocation());
+                    dropItem(sender.getLocation(), sender.getName());
                     Utils.sendMessage(sender, plugin.getConfig().getString("messages.pumpkins-drop"),
                             Template.of("player", sender.getName()),
-                            Template.of("GlobalPumpkinCounter", String.valueOf(plugin.getDropped())));
+                            Template.of("number", String.valueOf(plugin.getDropped())));
                 }));
 
         manager.command(builder.literal("give")
@@ -43,7 +43,7 @@ public class Commands {
                     final Player sender = (Player) context.getSender();
                     final Player target = context.get("player");
                     final int number = context.get("number");
-                    dropItem(target.getLocation(), number);
+                    dropItem(target.getLocation(), target.getName(), number);
                     Utils.sendMessage(sender, plugin.getConfig().getString("messages.pumpkins-give"),
                             Template.of("number", String.valueOf(number)),
                             Template.of("player", target.getName()));
@@ -58,12 +58,12 @@ public class Commands {
                 }));
     }
 
-    private void dropItem(final Location loc) {
+    private void dropItem(final Location loc, final String name) {
         plugin.addDropped();
-        loc.getWorld().dropItem(loc, Utils.getItem(plugin, plugin.getDropped()));
+        loc.getWorld().dropItem(loc, Utils.getItem(plugin, name, plugin.getDropped()));
     }
 
-    private void dropItem(final Location loc, final int number) {
-        loc.getWorld().dropItem(loc, Utils.getItem(plugin, number));
+    private void dropItem(final Location loc, final String name, final int number) {
+        loc.getWorld().dropItem(loc, Utils.getItem(plugin, name, number));
     }
 }

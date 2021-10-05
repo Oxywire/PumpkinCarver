@@ -46,7 +46,7 @@ public final class Utils {
         ));
     }
 
-    public static ItemStack getItem(final PumpkinCarverPlugin plugin, final int number) {
+    public static ItemStack getItem(final PumpkinCarverPlugin plugin, final String name, final int number) {
         final ItemStack skull = new ItemStack(Material.PLAYER_HEAD);
         final SkullMeta meta = (SkullMeta) skull.getItemMeta();
         final PlayerProfile profile = Bukkit.createProfile(UUID.randomUUID());
@@ -54,8 +54,9 @@ public final class Utils {
         profile.setProperty(new ProfileProperty("textures", plugin.getConfig().getString("item.texture")));
 
         meta.setPlayerProfile(profile);
-        meta.displayName(color(plugin.getConfig().getString("item.name").replace("%GlobalPumpkinCounter%", String.valueOf(number))));
-        meta.lore(plugin.getConfig().getStringList("item.lore").stream().map(Utils::color).collect(Collectors.toList()));
+        meta.displayName(color(plugin.getConfig().getString("item.name"), Template.of("number", String.valueOf(number))));
+        meta.lore(plugin.getConfig().getStringList("item.lore").stream().map(line -> color(line,
+                Template.of("founder", name), Template.of("number", String.valueOf(number)))).collect(Collectors.toList()));
         meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "pumpkincarver-customitem"), PersistentDataType.STRING, "pumpkin");
         skull.setItemMeta(meta);
 

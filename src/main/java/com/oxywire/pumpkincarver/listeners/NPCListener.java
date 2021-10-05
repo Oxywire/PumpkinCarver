@@ -31,7 +31,8 @@ public class NPCListener implements Listener {
                 player.getInventory().remove(hand);
                 Utils.showTitle(player, plugin.getConfig().getConfigurationSection("redeem.title"));
                 Utils.sendMessage(player, plugin.getConfig().getString("redeem.message"));
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), plugin.getConfig().getString("redeem.console-command"));
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), plugin.getConfig().getString("redeem.console-command")
+                        .replace("<player>", player.getName()));
                 player.playSound(player.getLocation(), Sound.valueOf(plugin.getConfig().getString("redeem.sound")), 1, 1);
             }
         }
