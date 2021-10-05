@@ -74,7 +74,7 @@ public class PlayerEvents implements Listener {
         final Location loc = player.getLocation();
 
         plugin.addDropped();
-        loc.getWorld().dropItem(loc, Utils.getItem(plugin, plugin.getDropped()));
+        loc.getWorld().dropItem(loc, Utils.getItem(plugin, player.getName(), plugin.getDropped()));
         Utils.showTitle(player, plugin.getConfig().getConfigurationSection("broadcast.title"));
         player.playSound(loc, Sound.valueOf(plugin.getConfig().getString("broadcast.sound")), 1, 1);
         Utils.sendMessage(plugin.getServer(), plugin.getConfig().getString("broadcast.broadcast-msg"),
