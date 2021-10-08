@@ -30,6 +30,9 @@ public class PlayerEvents implements Listener {
 
     @EventHandler
     public void onBreak(final BlockBreakEvent event) {
+        if (event.isCancelled()) {
+            return;
+        }
         if (plugin.getConfig().getStringList("excluded-blocks").contains(String.valueOf(event.getBlock().getType()))) {
             return;
         }
@@ -46,6 +49,9 @@ public class PlayerEvents implements Listener {
 
     @EventHandler
     public void onPlace(final BlockPlaceEvent event) {
+        if (event.isCancelled()) {
+            return;
+        }
         if (plugin.getConfig().getStringList("excluded-blocks").contains(String.valueOf(event.getBlock().getType()))) {
             return;
         }
