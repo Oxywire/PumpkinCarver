@@ -7,7 +7,7 @@ item:
     - "&7This Carved Pumpkin was number &e<number> &7ever found!"
     - "&7Found by: &e<founder>&7."
     - "&7"
-    - "&7&6■ &eDeliver it to the Witch in spawn"
+    - "&7&6■ &eDeliver it to the witch in spawn"
     - ""
     - "&5&m                             "
     - "&6&lRelic Item"
@@ -26,9 +26,9 @@ rates:
 
 broadcast:
   title:
-    fade-in: 2
-    stay: 4
-    fade-out: 2
+    fade-in: 1
+    stay: 2
+    fade-out: 1
     title: "&c☠ &6You found a Carved Pumpkin! &c☠"
     subtitle: "&7Return it to the with in spawn."
   sound: "ENTITY_PLAYER_LEVELUP"
@@ -37,9 +37,9 @@ broadcast:
 redeem:
   npc-id: 27
   title:
-    fade-in: 2
-    stay: 4
-    fade-out: 2
+    fade-in: 1
+    stay: 2
+    fade-out: 1
     title: "&c☠ &6Thank You! &c☠"
     subtitle: "&eOpen the Enchanted Pumpkin."
   sound: "ENTITY_WITCH_CELEBRATE"
