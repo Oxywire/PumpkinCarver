@@ -46,6 +46,10 @@ redeem:
   message: "&6&lPumpkinCarver &8» &eYou can now open the Enchanted Pumpkin"
   console-command: "treasures keys <player> Pumpkin add 1"
 
+elf:
+  npc-id: 28
+  console-command: "say <player>"
+
 messages:
   pumpkins: "&6&lPumpkinCarver &8» &7A total of &6#<number> Pumpkins &7have dropped!"
   pumpkins-drop: "&6&lPumpkinCarver &8» &e<player> &7dropped &6&lPumpkin #<number>&7 in spawn!"

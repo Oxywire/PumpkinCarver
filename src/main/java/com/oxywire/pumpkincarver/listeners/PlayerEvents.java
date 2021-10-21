@@ -38,10 +38,10 @@ public class PlayerEvents implements Listener {
         }
 
         final Player player = event.getPlayer();
+        placeProtection.put(player.getUniqueId(), System.currentTimeMillis() + 5000);
         if (inProtection(player.getUniqueId(), breakProtection)) {
             return;
         }
-        placeProtection.put(player.getUniqueId(), System.currentTimeMillis() + 5000);
         if (shouldDrop(plugin.getConfig().getDouble("rates.block-break"))) {
             dropPumpkin(player);
         }
@@ -57,10 +57,10 @@ public class PlayerEvents implements Listener {
         }
 
         final Player player = event.getPlayer();
+        breakProtection.put(player.getUniqueId(), System.currentTimeMillis() + 5000);
         if (inProtection(player.getUniqueId(), placeProtection)) {
             return;
         }
-        breakProtection.put(player.getUniqueId(), System.currentTimeMillis() + 5000);
         if (shouldDrop(plugin.getConfig().getDouble("rates.block-place"))) {
             dropPumpkin(player);
         }
