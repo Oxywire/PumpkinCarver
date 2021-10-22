@@ -23,8 +23,10 @@ public class NPCListener implements Listener {
 
     @EventHandler
     public void onRightClick(final NPCRightClickEvent event) {
-        if (event.getNPC().getId() == plugin.getConfig().getInt("redeem.npc-id")) {
-            final Player player = event.getClicker();
+        final int id = event.getNPC().getId();
+        final Player player = event.getClicker();
+
+        if (id == plugin.getConfig().getInt("redeem.npc-id")) {
             final ItemStack hand = player.getInventory().getItemInMainHand();
             if (hand != null && hand.hasItemMeta() && hand.getItemMeta().getPersistentDataContainer()
                     .has(new NamespacedKey(plugin, "pumpkincarver-customitem"), PersistentDataType.STRING)) {
@@ -34,6 +36,13 @@ public class NPCListener implements Listener {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), plugin.getConfig().getString("redeem.console-command")
                         .replace("<player>", player.getName()));
                 player.playSound(player.getLocation(), Sound.valueOf(plugin.getConfig().getString("redeem.sound")), 1, 1);
+            }
+        }
+        else if (id == plugin.getConfig().getInt("elf.npc-id")) {
+            if (!plugin.getClaimed().contains(player.getUniqueId().toString())) {
+                plugin.addClaimed(player.getUniqueId());
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), plugin.getConfig().getString("elf.console-command")
+                        .replace("<player>", player.getName()));
             }
         }
     }
