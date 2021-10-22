@@ -30,7 +30,7 @@ broadcast:
     stay: 2
     fade-out: 1
     title: "&c☠ &6You found a Carved Pumpkin! &c☠"
-    subtitle: "&7Return it to the with in spawn."
+    subtitle: "&7Return it to the witch in spawn."
   sound: "ENTITY_PLAYER_LEVELUP"
   broadcast-msg: "&6&lPumpkinCarver &8» &e<player> &7found &6Pumpkin #<number>&7!"
 
