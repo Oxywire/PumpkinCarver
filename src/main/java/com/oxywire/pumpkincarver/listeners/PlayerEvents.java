@@ -89,7 +89,7 @@ public class PlayerEvents implements Listener {
     }
 
     private boolean shouldDrop(final double chance) {
-        return Math.random() < chance;
+        return Math.random() < chance / 100;
     }
 
     private boolean inProtection(final UUID uuid, final Map<UUID, Long> map) {
