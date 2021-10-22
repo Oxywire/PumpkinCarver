@@ -41,14 +41,14 @@ redeem:
     stay: 2
     fade-out: 1
     title: "&c☠ &6Thank You! &c☠"
-    subtitle: "&eOpen the Enchanted Pumpkin."
+    subtitle: "&eOpen Jacky the Lantern."
   sound: "ENTITY_WITCH_CELEBRATE"
-  message: "&6&lPumpkinCarver &8» &eYou can now open the Enchanted Pumpkin"
-  console-command: "treasures keys <player> Pumpkin add 1"
+  message: "&6&lPumpkinCarver &8» &eYou can now open Jacky the Lantern."
+  console-command: "treasures keys <player> halloweenfree add 1"
 
 elf:
-  npc-id: 28
-  console-command: "say <player>"
+  npc-id: 64
+  console-command: "md give custom <player> PumpkinPie 1"
 
 messages:
   pumpkins: "&6&lPumpkinCarver &8» &7A total of &6#<number> Pumpkins &7have dropped!"
